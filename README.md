@@ -3,5 +3,3 @@ I have created a script that will copy game configs to a root folder. When a str
 
 # ZIP contains .EXE packaged version of ps2exposed
 Unzip and run ps2exposed.exe then use the buttons to configure each path. important: run ps2exposed.exe and configure the rom, ini and pcsx2.exe paths before trying to point your front-end to ps2exposed.exe
-
-After configuration point your frontend to the ps2exposed.exe insted of the pcsx2.exe emulator.
