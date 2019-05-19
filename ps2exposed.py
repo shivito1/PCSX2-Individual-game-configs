@@ -19,6 +19,10 @@ print(timeout)
 print(time.time())
 class Mainisgo:
     def __init__(self,root):
+        def close(event):
+            root.withdraw() # if you want to bring it back
+            sys.exit()
+        root.bind('<Escape>', close)
         self.root = root
         root.wm_title("JSPrograms")
 		
@@ -136,7 +140,8 @@ class Mainisgo:
 if __name__ == "__main__":
     
     try:
-        print(sys.argv[1] + sys.argv[2] + sys.argv[3])
+        print(sys.argv[1:])
+        print(sys.argv[1])
     except IndexError:
         Mainisgo(Tk())
     
@@ -179,10 +184,11 @@ if __name__ == "__main__":
                 if time.time() <= timeout:
                     if keyboard.is_pressed('l'):  # if key 'q' is pressed 
                         print(pcsx2location+' "' + sys.argv[1] + '" ' + sys.argv[3])
-                        subprocess.call(pcsx2location+' "' + sys.argv[1] + '" ' + sys.argv[3]) #play the fucking game!
+                        subprocess.Popen(pcsx2location+' "' + sys.argv[1] + '" ' + sys.argv[3]) #play the fucking game!
+                        Mainisgo(Tk())
                         break  # finishing the loop
                     elif keyboard.is_pressed('z'):
-                        subprocess.call(pcsx2location+' "' + sys.argv[1] + '" ' + sys.argv[2] + " " + sys.argv[3])
+                        subprocess.Popen(pcsx2location+' "' + sys.argv[1] + '" ' + sys.argv[2] + " " + sys.argv[3])
                         break
                     else:
                         pass
@@ -195,5 +201,4 @@ if __name__ == "__main__":
         
 
     except:
-        print('error')
-            
+        print(Exception)
